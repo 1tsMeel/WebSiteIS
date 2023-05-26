@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(107, 146, 132);
+}
+
+
+.login {
+    width: 360px;
+    height: min-content;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+
+}
+
+i {
+    color: black;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 36px;
+    margin-bottom: 25px;
+
+}
+
+.login form {
+    font-size: 20px;
+    font-family: 'Fira Sans', sans-serif;
+
+}
+
+.login form .form-group {
+    margin-bottom: 12px;
+}
+
+.login form input[type="submit"] {
+    font-size: 20px;
+    margin-top: 15px;
+}

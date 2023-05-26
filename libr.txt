@@ -1,0 +1,6 @@
+//Modulos instalados en la web
+npm i express-handlebars express-session mysql morgan bcryptjs passport-local timeago.js connect-flash express-validator 
+npm i nodemon -D
+
+
+express-session <---esta no se pudo instalar

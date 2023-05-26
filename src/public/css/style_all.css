@@ -1,0 +1,54 @@
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #003366 0%, #006699 100%);
+}
+
+
+.navbar {
+    margin-bottom: 50px;
+}
+
+i.icon {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.login {
+    color: white;
+    width: 360px;
+    background-color: rgb(240, 248, 255, 0.2);
+    border-radius: 15px;
+}
+
+.login form input[type="text"],
+.login form input[type="password"] {
+    margin-bottom: 20px;
+    color: white;
+    background: none;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.login form input:focus {
+    /*box-shadow: none;*/
+    /* Para eliminar el efecto de resaltado */
+    border: 2px solid #5c94bd;
+    /* Color y grosor del borde al enfocar */
+    box-shadow: 0 0 5px #5c94bd;
+    /* Sombra al enfocar */
+}
+
+.login form input::placeholder {
+    color: white;
+}
+
+.login form input {
+    /*Efecto sencillo para el input de Login*/
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
