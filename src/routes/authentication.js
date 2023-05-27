@@ -4,10 +4,12 @@ const passport = require('passport');
 const { isLoggedIn } = require('../lib/auth');
 const { isNotLoggedIn } = require('../lib/auth');
 
+//Ruta con metodo get, para renderizar el formulario0
 router.get('/signup', isNotLoggedIn, (req, res) => {
     res.render('auth/signup');
 });
 
+//Ruta con el metodo post, recibe los datos del formulario
 router.post('/signup', passport.authenticate('local.signup', {
     successRedirect: '/profile',
     failureRedirect: '/signup',

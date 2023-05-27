@@ -9,7 +9,6 @@ passport.use('local.signin', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    console.log(req.body)
     const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
     if (rows.length > 0) {
         const user = rows[0];
@@ -32,10 +31,12 @@ passport.use('local.signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
     const { fullname } = req.body;
+    const { cargo } = req.body;
     const newUser = {
         username,
         password,
-        fullname
+        fullname,
+        cargo
     };
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ?', [newUser]);
