@@ -1,4 +1,30 @@
-<div class="container p-3">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-5 w-100">
+            <div class="card bg-custom">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <i class="icon bi bi-person-check icon-t"></i>
+                            <a href="#" class="btn btn-danger">Editar Perfil</a>
+                        </div>
+                        <div class="col-md-7 text-white">
+                            <h5 class="card-title">Nombre: {{user.fullname}}</h5>
+                            <h5 class="card-title">Apellido Materno: {{user.apellido1}}</h5>
+                            <h5 class="card-title">Nombre Paterno: {{user.apellido2}}</h5>
+                            <h5 class="card-title">Nombre del Usuario: {{user.username}}</h5>
+                            <h5 class="card-text">Correo Electrónico: {{user.correo}}</h5>
+                            <h5 class="card-text">Cargo: {{user.cargo}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="container p-3">
     <div class="col-md-4 mx-auto">
         <div class="card text-center">
             <div class="card-body">
@@ -7,4 +33,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

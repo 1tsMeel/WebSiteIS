@@ -47,6 +47,10 @@ i.icon {
     margin-bottom: 25px;
 }
 
+i.icon-t {
+    font-size: 100px;
+}
+
 .login {
     color: white;
     width: 450px;
@@ -61,6 +65,12 @@ i.icon {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 15px;
     box-shadow: #121c55;
+}
+
+.bg-custom {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    /* Color de fondo personalizado */
 }
 
 .choose select {
@@ -123,5 +133,9 @@ i.icon {
 @media (min-width: 992px) {
     .masthead h1 {
         font-size: 5.5rem;
+    }
+
+    i.icon-t {
+        font-size: 150px;
     }
 }
