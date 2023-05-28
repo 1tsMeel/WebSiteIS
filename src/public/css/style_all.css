@@ -1,12 +1,42 @@
 body {
     height: 100vh;
-    background: linear-gradient(to bottom, #003366 0%, #006699 100%);
+    background-image: linear-gradient(to left bottom, #121c55, #1c3679, #22519e, #216fc4, #128eeb);
+    overflow: hidden;
+
+}
+
+.index {
+    width: 100%;
+    height: 100%;
+}
+
+.masthead {
+    color: white;
+    min-height: 30rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 4rem;
+    background: url('img/marek-piwnicki-XzZ0qzvQcnw-unsplash.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.masthead h2 {
+    font-size: 60px;
+    margin: 0;
+    padding: 0;
 }
 
 
-.navbar {
+/*.navbar {
     margin-bottom: 50px;
+}*/
+
+.cont_ini {
+    margin-top: 50px;
 }
+
 
 i.icon {
     color: rgb(255, 255, 255);
@@ -19,36 +49,79 @@ i.icon {
 
 .login {
     color: white;
-    width: 360px;
-    background-color: rgb(240, 248, 255, 0.2);
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 15px;
+    box-shadow: #121c55;
+}
+
+.sign-up {
+    color: white;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: #121c55;
+}
+
+.choose select {
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.choose option {
+    color: black;
 }
 
 .login form input[type="text"],
-.login form input[type="password"] {
+.login form input[type="password"],
+.sign-up form input[type="text"],
+.sign-up form input[type="password"],
+.sign-up form input[type="email"] {
     margin-bottom: 20px;
     color: white;
     background: none;
-    border-radius: 0px;
+    border-radius: 10px;
     border: none;
     border-bottom: 1px solid white;
     outline: none;
 }
 
-.login form input:focus {
+.login form input:focus,
+.sign-up form input:focus,
+.choose select:focus {
     /*box-shadow: none;*/
     /* Para eliminar el efecto de resaltado */
-    border: 2px solid #5c94bd;
+    border: 2px solid #5cbd6c;
     /* Color y grosor del borde al enfocar */
-    box-shadow: 0 0 5px #5c94bd;
+    box-shadow: 0 0 5px #5cbd69;
     /* Sombra al enfocar */
 }
 
-.login form input::placeholder {
+.login form input::placeholder,
+.sign-up form input::placeholder {
     color: white;
 }
 
-.login form input {
+.login form input,
+.sign-up form input,
+.choose select {
     /*Efecto sencillo para el input de Login*/
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cont-p {
+    color: #006699;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+@media (min-width: 992px) {
+    .masthead h1 {
+        font-size: 5.5rem;
+    }
 }

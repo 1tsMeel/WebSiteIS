@@ -30,25 +30,50 @@
 </div>-->
 
 <div class="index">
-    <div class="container p-3">
-        <div class="login p-5 mx-auto">
+    <div class="container p-3 d-flex align-items-center justify-content-center" style="height: 80%;">
+        <div class="sign-up p-5">
             <h1 class="text-center">Registro</h1>
             <i class="icon bi bi-person"></i>
 
             <form class="needs-validation" action="/signup" method="POST">
-                <div class="form-group">
-                    <input type="text" name="fullname" placeholder="Nombre completo" class="form-control" autofocus
-                        required>
+                <div class="row g-3">
+                    <div class="col-sm-5">
+                        <input type="text" name="fullname" class="form-control" placeholder="Nombre"
+                            aria-label="First name" autofocus>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="apellido1" class="form-control" placeholder="Apellido" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="apellido2" class="form-control" placeholder="Apellido">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="username" placeholder="Username" class="form-control" required>
+
+                <div class="row g-3">
+                    <div class="col-sm-7">
+                        <input type="email" name="correo" class="form-control" placeholder="Correo">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" placeholder="Contraseña" class="form-control" required>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="cargo" placeholder="Cargo" class="form-control" required>
+
+                <div class="choose col-auto">
+                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                    <select name="cargo" class="form-select" id="autoSizingSelect" required>
+                        <option selected>Cargo</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="cliente">Cliente</option>
+                    </select>
                 </div>
+
+                <!--<div class="form-group">
+                    <input type="text" name="cargo" placeholder="Cargo" class="form-control" required>
+                </div>-->
+
                 <div class="form-group">
                     <button class="btn btn-primary btn-block w-100">
                         SignUp
@@ -58,4 +83,9 @@
             </form>
         </div>
     </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#0099ff" fill-opacity="1"
+            d="M0,160L11.4,186.7C22.9,213,46,267,69,256C91.4,245,114,171,137,165.3C160,160,183,224,206,213.3C228.6,203,251,117,274,101.3C297.1,85,320,139,343,160C365.7,181,389,171,411,186.7C434.3,203,457,245,480,261.3C502.9,277,526,267,549,261.3C571.4,256,594,256,617,261.3C640,267,663,277,686,277.3C708.6,277,731,267,754,256C777.1,245,800,235,823,197.3C845.7,160,869,96,891,96C914.3,96,937,160,960,192C982.9,224,1006,224,1029,229.3C1051.4,235,1074,245,1097,224C1120,203,1143,149,1166,154.7C1188.6,160,1211,224,1234,213.3C1257.1,203,1280,117,1303,106.7C1325.7,96,1349,160,1371,176C1394.3,192,1417,160,1429,144L1440,128L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z"
+            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #007acc;"></path>
+    </svg>
 </div>
