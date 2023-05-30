@@ -6,13 +6,13 @@ const helpers = require('../lib/helpers');
 
 passport.use('local.signin', new LocalStrategy({
     usernameField: 'username',
-    passwordField: 'password',
+    passwordField: 'Contraseña',
     passReqToCallback: true
-}, async (req, username, password, done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+}, async (req, username, Contraseña, done) => {
+    const rows = await pool.query('SELECT * FROM usuarios WHERE username = ?', [username]);
     if (rows.length > 0) {
         const user = rows[0];
-        const validPassword = await helpers.matchPassword(password, user.password);
+        const validPassword = await helpers.matchPassword(Contraseña, user.Contraseña);
         if (validPassword) {
             done(null, user, req.flash('success', 'Welcome ' + user.username))
 
@@ -27,15 +27,16 @@ passport.use('local.signin', new LocalStrategy({
 
 passport.use('local.signup', new LocalStrategy({
     usernameField: 'username',
-    passwordField: 'password',
+    passwordField: 'Contraseña',
     passReqToCallback: true
-}, async (req, username, password, done) => {
-    const { fullname } = req.body;
-    const { cargo } = req.body;
-    const { correo } = req.body;
-    const { apellido1 } = req.body;
-    const { apellido2 } = req.body;
-    const newUser = {
+}, async (req, username, Contraseña, done) => {
+    console.log(req.body)
+    const { Nombre } = req.body;
+    const { Cargo } = req.body;
+    const { Correo } = req.body;
+    const { apellidoP } = req.body;
+    const { apellidoM } = req.body;
+    /*const newUser = {
         username,
         password,
         fullname,
@@ -43,18 +44,27 @@ passport.use('local.signup', new LocalStrategy({
         apellido2,
         cargo,
         correo
+    };*/
+    const newUser = {
+        Nombre,
+        apellidoP,
+        apellidoM,
+        Correo,
+        Contraseña,
+        username,
+        Cargo,
     };
-    newUser.password = await helpers.encryptPassword(password);
-    const result = await pool.query('INSERT INTO users SET ?', [newUser]);
-    newUser.id = result.insertId;
+    newUser.Contraseña = await helpers.encryptPassword(Contraseña);
+    const result = await pool.query('INSERT INTO usuarios SET ?', [newUser]);
+    newUser.Id_Usuario = result.insertId;
     return done(null, newUser);
 }));
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.Id_Usuario);
 });
 
-passport.deserializeUser(async (id, done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+passport.deserializeUser(async (Id_Usuario, done) => {
+    const rows = await pool.query('SELECT * FROM usuarios WHERE Id_Usuario = ?', [Id_Usuario]);
     done(null, rows[0]);
 });
