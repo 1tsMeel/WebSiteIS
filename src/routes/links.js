@@ -16,8 +16,12 @@ router.post('/searchData', (req, res) => {
     res.send('received');
 });
 
-router.get('/ALTAS', (req, res) => {
-    res.render('links/ALTAS');
+router.get('/altas', (req, res) => {
+    res.render('links/altas');
+});
+
+router.get('/consultas', (req, res) => {
+    res.render('links/consultas');
 });
 
 module.exports = router;
