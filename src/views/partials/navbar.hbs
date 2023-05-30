@@ -8,9 +8,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {{#if user}}
-                {{#eq user.cargo "administrador"}}
+                {{#eq user.Cargo "administrador"}}
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Administrador</a>
+                    <a class="nav-link active" aria-current="page" href="/">Altas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Consulta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Busqueda</a>
                 </li>
                 {{else}}
                 <li class="nav-item">
