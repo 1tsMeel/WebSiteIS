@@ -64,6 +64,8 @@ ALTER TABLE users
   id_adiccion INT(11) NOT NULL,
   id_domicilio INT(11) NOT NULL,
   id_familiar INT(11) NOT NULL,
+  id_datosdet INT(11) NOT NULL,
+  id_oxxo INT(11) NOT NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp,
   CONSTRAINT fk_detenido FOREIGN KEY(id_detenido) REFERENCES datos_personales(Id_Detenido)
   CONSTRAINT fk_datant FOREIGN KEY(id_datant) REFERENCES datos_antropomorficos(Id_Datant)
@@ -71,6 +73,8 @@ ALTER TABLE users
   CONSTRAINT fk_adiccion FOREIGN KEY(id_adiccion) REFERENCES adicciones(Id_Adiccion)
   CONSTRAINT fk_domicilio FOREIGN KEY(id_domicilio) REFERENCES domicilio(Id_Domicilio)
   CONSTRAINT fk_familiar FOREIGN KEY(id_familiar) REFERENCES datos_familiares(Id_Familiar)
+  CONSTRAINT fk_datosdetencion FOREIGN KEY(id_datosdet) REFERENCES datos_detencion(Id_Detencion)
+  CONSTRAINT fk_oxxo FOREIGN KEY(id_oxxo) REFERENCES oxxo(Id_Oxxo)
 );
 
 ALTER TABLE global

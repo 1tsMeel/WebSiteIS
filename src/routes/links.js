@@ -173,6 +173,8 @@ router.post('/altas', async (req, res) => {
     const id_tatuaje = await pool.query('SELECT * FROM tatuajes_detenido ORDER BY Id_Tatuaje DESC LIMIT 1;')
     const id_adiccion = await pool.query('SELECT * FROM adicciones ORDER BY Id_Adiccion DESC LIMIT 1;')
     const id_familiares = await pool.query('SELECT * FROM datos_familiares ORDER BY Id_Familiar DESC LIMIT 1;')
+    const id_datos_detencion = await pool.query('SELECT * FROM datos_detencion ORDER BY Id_Detencion DESC LIMIT 1;')
+    const id_oxxo = await pool.query('SELECT * FROM oxxo ORDER BY Id_Oxxo DESC LIMIT 1;')
 
     const newGlobal = {
         id_detenido: resul4[0].Id_Detenido,
@@ -180,12 +182,14 @@ router.post('/altas', async (req, res) => {
         id_tatuaje: id_tatuaje[0].Id_Tatuaje,
         id_adiccion: id_adiccion[0].Id_Adiccion,
         id_domicilio: resul[0].Id_Domicilio,
-        id_familiar: id_familiares[0].Id_Familiar
+        id_familiar: id_familiares[0].Id_Familiar,
+        id_datosdet: id_datos_detencion[0].Id_Detencion,
+        id_oxxo: id_oxxo[0].Id_Oxxo
     }
     await pool.query('INSERT INTO global SET ?', [newGlobal]);
 
 
-    res.send('received');
+    res.redirect('/links');
 });
 
 router.get('/altas', isLoggedIn, isAdmin, (req, res) => {
@@ -193,12 +197,12 @@ router.get('/altas', isLoggedIn, isAdmin, (req, res) => {
 });
 
 router.get('/', isLoggedIn, isAdmin, async (req, res) => {
-    const delitos = await pool.query('SELECT * FROM datos_antropomorficos')
-    console.log(delitos)
-    res.send("DELITOS AQUI")
+    const id_global = await pool.query('SELECT global.*, datos_personales.*, datos_antropomorficos.*, domicilio.*, datos_detencion.*, oxxo.* FROM global JOIN datos_personales ON global.id_detenido = datos_personales.Id_Detenido JOIN datos_antropomorficos ON global.id_datant = datos_antropomorficos.Id_Datant JOIN domicilio ON global.id_domicilio = domicilio.Id_Domicilio JOIN datos_detencion ON global.id_datosdet = datos_detencion.Id_Detencion JOIN oxxo ON global.id_oxxo = oxxo.Id_Oxxo;')
+    console.log(id_global)
+    res.render('links/delitos', { id_global });
 });
 
-router.get('/consultas', async (req, res) => {
+router.get('/consultas', isLoggedIn, async (req, res) => {
     res.render('links/consultas');
 });
 

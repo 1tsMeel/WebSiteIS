@@ -1,25 +1,30 @@
 <body style="overflow: visible; background: #e6dfdf; height: 100%; background-size: 100%;
       background-repeat: no-repeat;
       background-position: center;">
-    <nav class="navbar navbar-expand bg-white">
-        <div class="container">
-            <ul class="nav nav-pills" id="myList" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="home-tab" data-bs-toggle="pill" href="#home" role="tab"
-                        aria-selected="true">Datos Personales</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-bs-toggle="pill" href="#profile" role="tab"
-                        aria-selected="false">Vestimenta</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="messages-tab" data-bs-toggle="pill" href="#messages" role="tab"
-                        aria-selected="false">Detencion</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <form class="needs-validation" action="/links/altas" method="POST">
+        <nav class="navbar navbar-expand bg-white">
+            <div class="container">
+                <ul class="nav nav-pills" id="myList" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-bs-toggle="pill" href="#home" role="tab"
+                            aria-selected="true">Datos Personales</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-bs-toggle="pill" href="#profile" role="tab"
+                            aria-selected="false">Vestimenta</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="messages-tab" data-bs-toggle="pill" href="#messages" role="tab"
+                            aria-selected="false">Detencion</a>
+                    </li>
+                    <input class="btn btn-success ms-2" type="submit" value="Guardar">
+
+                    <li class="nav-item" role="presentation">
+                        <a class="btn btn-danger ms-2" href="/links">Ver Registros</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="container p-3">
             <div class="tab-content mt-2">
                 <div class="tab-pane fade" id="messages" role="tabpanel">
@@ -410,7 +415,6 @@
 
                     <label for="telefono">Número de Teléfono:</label>
                     <input type="tel" id="telefono" name="telefono"><br><br>
-                    <input class="btn btn-success 2-100" type="submit" value="Guardar">
                 </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel">

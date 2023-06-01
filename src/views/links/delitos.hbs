@@ -1,0 +1,30 @@
+<body style="overflow: visible; background: #e6dfdf; height: 100%; background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;">
+    <div class="container mt-5">
+        <h1 class="mb-4">Datos del Delito</h1>
+        <div class="row">
+            {{#each id_global}}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Delito</h5>
+                        <p class="card-text">Folio Delito: {{id_global}}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Nombre del Detenido: {{nombre}}</li>
+                            <li class="list-group-item">Edad: {{edad}}</li>
+                            <li class="list-group-item">Estatura: {{Estatura}} Mts</li>
+                            <li class="list-group-item">Peso: {{Peso}} Kg</li>
+                            <li class="list-group-item">Lugar de Detención: {{Lugar}}</li>
+                            <li class="list-group-item">Fecha: {{Fecha}}</li>
+                            <li class="list-group-item">Hora: {{Hora}}</li>
+                            <li class="list-group-item">Ubicación del Oxxo: {{Ubicacion}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+</body>
