@@ -1,1 +1,553 @@
-<p>Hola</p>
+<body style="overflow: visible; background: #e6dfdf; height: 100%; background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;">
+    <nav class="navbar navbar-expand bg-white">
+        <div class="container">
+            <ul class="nav nav-pills" id="myList" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-bs-toggle="pill" href="#home" role="tab"
+                        aria-selected="true">Datos Personales</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-bs-toggle="pill" href="#profile" role="tab"
+                        aria-selected="false">Vestimenta</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="messages-tab" data-bs-toggle="pill" href="#messages" role="tab"
+                        aria-selected="false">Detencion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <form class="needs-validation" action="/links/altas" method="POST">
+        <div class="container p-3">
+            <div class="tab-content mt-2">
+                <div class="tab-pane fade" id="messages" role="tabpanel">
+                    <h2>Datos de detencion:</h2>
+                    <label for="lugar">Lugar:</label>
+                    <input type="text" id="lugar" name="lugar"><br><br>
+
+                    <label for="colonia">Colonia:</label>
+                    <input type="text" id="colonia" name="colonia"><br><br>
+
+                    <label for="sector">Sector:</label>
+                    <input type="text" id="sector" name="sector"><br><br>
+
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha"><br><br>
+
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora"><br><br>
+
+                    <label for="modus_operandi">Modus Operandi:</label>
+                    <select id="modus_operandi" name="modus_operandi">
+                        <option value="Robo con violencia">Robo con violencia</option>
+                        <option value="Robo hormiga">Robo hormiga</option>
+                        <option value="Robo mediante inhibición de alarmas">Robo mediante inhibición de alarmas</option>
+                        <option value="Robo mediante distracción">Robo mediante distracción</option>
+                        <option value="Robo con cómplices internos">Robo con cómplices internos</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+                    <h2>Armas:</h2>
+                    <label for="tipo_arma">Tipo de Arma:</label>
+                    <select id="tipo_arma" name="tipo_arma">
+                        <option value="Punzocortante">Punzocortante</option>
+                        <option value="De fuego">De fuego</option>
+                        <option value="Blanca">Blanca</option>
+                        <option value="Contundente">Contundente</option>
+                        <option value="Química">Química</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="modelo">Modelo:</label>
+                    <select id="modelo" name="modelo">
+                        <option value="Glock ">Glock </option>
+                        <option value="Smith & Wesson">Smith & Wesson </option>
+                        <option value="Remington">Remington</option>
+                        <option value="Heckler & Koch">Heckler & Koch </option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="tamaño">Tamaño:</label>
+                    <select id="tamaño" name="tamano">
+                        <option value="Pequeño">Pequeño</option>
+                        <option value="Mediano">Mediano</option>
+                        <option value="Grande">Grande</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+
+                    <label for="motivo_detencion">Motivo de Detención:</label><br>
+                    <textarea name="Motivo" id="motivo_detencion" rows="4" cols="50"></textarea><br><br>
+
+                    <h2>Registro de Nivel de Acceso</h2>
+
+                    <input type="checkbox" id="acceso1" name="acceso[]" value="Ventana"> <label
+                        for="acceso1">Ventana</label><br>
+                    <input type="checkbox" id="acceso2" name="acceso[]" value="Puerta"> <label
+                        for="acceso2">Puerta</label><br>
+                    <input type="checkbox" id="acceso3" name="acceso[]" value="Techo"> <label
+                        for="acceso3">Techo</label><br>
+                    <input type="checkbox" id="acceso4" name="acceso[]" value="Sótano"> <label
+                        for="acceso4">Sótano</label><br>
+                    <input type="checkbox" id="acceso5" name="acceso[]" value="Otro"> <label
+                        for="acceso5">Otro</label><br><br>
+                    <h2>Ubicacion del Oxxo</h2>
+                    <label for="ubicacion_oxxo">Oxxo:</label>
+                    <select id="ubicacion_oxxo" name="ubicacion_oxxo">
+                        <option value="Centro">Centro</option>
+                        <option value="Tangamanga">Tangamanga</option>
+                        <option value="Del Valle">Del Valle</option>
+                        <option value="Tequisquiapan">Tequisquiapan</option>
+                        <option value="La Loma">La Loma</option>
+                        <!-- Agrega más opciones según las ubicaciones de Oxxo en San Luis Potosí -->
+                    </select><br><br>
+
+                    <label for="fecha_robo">Fecha de Robo:</label>
+                    <input type="date" id="fecha_robo" name="fecha_robo"><br><br>
+
+                    <label for="descripcion_robo">Descripción del Robo:</label><br>
+                    <textarea id="descripcion_robo" name="descripcion_robo" rows="4" cols="50"></textarea><br><br>
+
+
+                    <style>
+                        .hidden {
+                            display: none;
+                        }
+                    </style>
+                    <label for="vehiculo">¿Se utilizó un vehiculo?</label>
+                    <select id="vehiculo" name="vehiculo" onchange="mostrarOcultarvehiculo(this.value)">
+                        <option value="vacio"> </option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select><br><br>
+                    <div id="vehiculos" class="hidden"><label for="tipo_vehiculo">Tipo de Vehículo:</label>
+                        <select id="tipo_vehiculo" name="tipo_vehiculo">
+                            <option value="Auto">Auto</option>
+                            <option value="Camioneta">Camioneta</option>
+                            <option value="Motocicleta">Motocicleta</option>
+                            <option value="Bicicleta">Bicicleta</option>
+                            <!-- Agrega más opciones según los tipos de vehículos -->
+                        </select><br><br>
+
+                        <label for="marca">Marca:</label>
+                        <select id="marca" name="marca">
+                            <option value="Toyota">Toyota</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <!-- Agrega más opciones según las marcas de vehículos -->
+                        </select><br><br>
+
+                        <label for="serie">Número de Serie:</label>
+                        <input type="number" id="serie" name="serie"><br><br>
+
+                        <label for="num_placa">Número de Placa:</label>
+                        <input type="text" id="num_placa" name="num_placa" maxlength="10"><br><br>
+
+                        <label for="color">Color:</label>
+                        <select id="color" name="color">
+                            <option value="Negro">Negro</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Gris">Gris</option>
+                            <option value="Azul">Azul</option>
+                            <!-- Agrega más opciones según los colores -->
+                        </select><br><br>
+                    </div>
+
+
+                    <script>
+                        function mostrarOcultarvehiculo(valor) {
+                            var vehiculoss = document.getElementById("vehiculos");
+
+                            if (valor === "si") {
+                                vehiculos.classList.remove("hidden");
+                            } else {
+                                vehiculos.classList.add("hidden");
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="tab-pane fade show active" id="home" role="tabpanel">
+                    <h2>Ingrese los datos personales:</h2>
+                    <h2>Datos Personales</h2>
+
+                    <div class="mb-3">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre2">Segundo nombre:</label>
+                        <input type="text" name="nombre2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ap_paterno">Apellido paterno:</label>
+                        <input type="text" name="ap_paterno">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ap_materno">Apellido materno:</label>
+                        <input type="text" name="ap_materno">
+                    </div>
+                    <div class="mb-3">
+                        <label for="alias">Alias:</label>
+                        <input type="text" name="alias">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ine">INE:</label>
+                        <input type="text" name="ine">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_nac">Fecha de Nacimiento:</label>
+                        <input type="date" name="fecha_nac">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad">Edad:</label>
+                        <input type="number" name="edad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sexo">Sexo:</label>
+                        <select name="sexo">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pref_sexual">Preferencia Sexual:</label>
+                        <select name="pref_sexual">
+                            <option value="heterosexual">Heterosexual</option>
+                            <option value="homosexual">Homosexual</option>
+                            <option value="bisexual">Bisexual</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ocupacion">Ocupación:</label>
+                        <input type="text" name="ocupacion">
+                    </div>
+                    <div class="mb-3">
+                        <label for="escolaridad">Escolaridad:</label>
+                        <input type="text" name="escolaridad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="est_civil">Estado Civil:</label>
+                        <select name="est_civil">
+                            <option value="soltero">Soltero/a</option>
+                            <option value="casado">Casado/a</option>
+                            <option value="divorciado">Divorciado/a</option>
+                            <option value="viudo">Viudo/a</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <h2>Datos Antropomorficos</h2>
+                    <label for="estatura">Estatura:</label>
+                    <input type="number" step="0.01" id="estatura" name="estatura"><br><br>
+
+                    <label for="peso">Peso:</label>
+                    <input type="number" step="0.01" id="peso" name="peso"><br><br>
+
+                    <label for="forma_cabeza">Forma de Cabeza:</label>
+                    <select id="forma_cabeza" name="forma_cabeza">
+                        <option value="redonda">Redonda</option>
+                        <option value="ovalada">Ovalada</option>
+                        <option value="cuadrada">Cuadrada</option>
+                        <option value="triangular">Triangular</option>
+                        <option value="alargada">Alargada</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="tipo_cabello">Tipo de Cabello:</label>
+                    <select id="tipo_cabello" name="tipo_cabello">
+                        <option value="liso">Liso</option>
+                        <option value="rizado">Rizado</option>
+                        <option value="ondulado">Ondulado</option>
+                        <option value="crespo">Crespo</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="color_cabello">Color de Cabello:</label>
+                    <select id="color_cabello" name="color_cabello">
+                        <option value="negro">Negro</option>
+                        <option value="rubio">Rubio</option>
+                        <option value="castaño">Castaño</option>
+                        <option value="rojo">Rojo</option>
+                        <option value="pelirrojo">Pelirrojo</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="tipo_cejas">Tipo de Cejas:</label>
+                    <select id="tipo_cejas" name="tipo_cejas">
+                        <option value="gruesas">Gruesas</option>
+                        <option value="delgadas">Delgadas</option>
+                    </select><br><br>
+
+                    <label for="color_ojos">Color de Ojos:</label>
+                    <select id="color_ojos" name="color_ojos">
+                        <option value="azul">Azul</option>
+                        <option value="verde">Verde</option>
+                        <option value="marrón">Marrón</option>
+                        <option value="negro">Negro</option>
+                        <option value="gris">Gris</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="tamano_orejas">Tamaño de Orejas:</label>
+                    <select id="tamano_orejas" name="tamano_orejas">
+                        <option value="pequeño">Pequeño</option>
+                        <option value="mediano">Mediano</option>
+                        <option value="grande">Grande</option>
+                    </select><br><br>
+
+                    <label for="tez_piel">Tez de Piel:</label>
+                    <select id="tez_piel" name="tez_piel">
+                        <option value="clara">Clara</option>
+                        <option value="media">Media</option>
+                        <option value="oscura">Oscura</option>
+                    </select><br><br>
+
+                    <label for="vello_facial">Vello Facial:</label>
+                    <select id="vello_facial" name="vello_facial">
+                        <option value="barba">Barba</option>
+                        <option value="bigote">Bigote</option>
+                        <option value="perilla">Bigote y barba</option>
+                        <option value="sin_vello">Sin Vello Facial</option>
+                    </select><br><br>
+                    <h2>Tatuajes</h2>
+                    <label for="tiene_tatuajes">¿Tiene tatuajes el detenido?</label>
+                    <select id="tiene_tatuajes" name="tiene_tatuajes" onchange="mostrarOcultarParteCuerpo(this.value)">
+                        <option value="vacio"> </option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select><br><br>
+
+                    <div id="parte_cuerpo_container" class="hidden">
+                        <label for="parte_cuerpo">Parte del cuerpo con tatuaje:</label>
+                        <select id="parte_cuerpo" name="ParteCuerpo">
+                            <option value="BrazoIzquierdo">BrazoIzquierdo</option>
+                            <option value="BrazoDerecho">BrazoDerecho</option>
+                            <option value="PiernaIzquierda">PiernaIzquierda</option>
+                            <option value="PiernaDerecha">PiernaDerecha</option>
+                            <option value="ManoIzquierda">ManoIzquierda</option>
+                            <option value="ManoDerecha">ManoDerecha</option>
+                            <option value="DedosdeManos">DedosdeManos</option>
+                            <option value="DedosdePies">DedosdePies</option>
+                            <option value="Espalda">Espalda</option>
+                            <option value="Cuello">Cuello</option>
+                            <option value="Cara">Cara</option>
+                            <option value="Pecho">Pecho</option>
+                            <!-- Agrega más opciones según las partes del cuerpo -->
+                        </select><br><br>
+                        <label for="descripcion_tatuaje">Descripción del Tatuaje:</label><br>
+                        <textarea id="descripcion_tatuaje" name="Descipcion" rows="4" cols="50"></textarea><br><br>
+                        <label for="imagen_tatuaje">Imagen del Tatuaje:</label><br>
+                        <input type="file" id="imagen_tatuaje" name="Link_Fotos" accept="image/*"><br><br>
+                    </div>
+                    <script>
+                        function mostrarOcultarParteCuerpo(valor) {
+                            var parteCuerpoContainer = document.getElementById("parte_cuerpo_container");
+
+                            if (valor === "si") {
+                                parteCuerpoContainer.classList.remove("hidden");
+                            } else {
+                                parteCuerpoContainer.classList.add("hidden");
+                            }
+                        }
+                    </script>
+
+
+
+
+                    <h2>Adicciones del detenido</h2>
+                    <input type="checkbox" id="marihuana" name="adicciones[]" value="marihuana">
+                    <label for="marihuana">marihuana</label><br>
+
+                    <input type="checkbox" id="farmacos" name="adicciones[]" value="farmacos">
+                    <label for="farmacos">Fármacos</label><br>
+
+                    <input type="checkbox" id="inhalantes" name="adicciones[]" value="inhalantes">
+                    <label for="inhalantes">inhalantes</label><br>
+
+                    <input type="checkbox" id="cocaina" name="adicciones[]" value="cocaina">
+                    <label for="cocaina">cocaina</label><br>
+
+                    <input type="checkbox" id="heroina" name="adicciones[]" value="heroina">
+                    <label for="heroina">heroina</label><br>
+                    <input type="checkbox" id="metanfetamina" name="adicciones[]" value="metanfetamina">
+                    <label for="metanfetamina">metanfetamina</label><br>
+                    <input type="checkbox" id="ninguna" name="adicciones[]" value="ninguna">
+                    <label for="ninguna">ninguna</label><br>
+                    <br>
+                    <h2>Ingrese los detalles de la dirección del detenido:</h2>
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" name="Calle"><br><br>
+
+                    <label for="no_ext">Número Exterior:</label>
+                    <input type="number" id="no_ext" name="No_ext"><br><br>
+
+                    <label for="no_int">Número Interior:</label>
+                    <input type="number" id="no_int" name="No_int"><br><br>
+
+                    <label for="colonia">Colonia:</label>
+                    <input type="text" id="colonia" name="Colonia"><br><br>
+
+                    <label for="cp">Código Postal:</label>
+                    <input type="number" id="cp" name="CP"><br><br>
+                    <h2>Ingrese los datos familiares:</h2>
+                    <label for="tipo_familiar">Tipo de Familiar:</label>
+                    <select id="tipo_familiar" name="tipo_familiar">
+                        <option value="hermano">Hermano/a</option>
+                        <option value="papa">Papá</option>
+                        <option value="mama">Mamá</option>
+                        <option value="hermana">Hermana</option>
+                        <option value="primo">Primo/a</option>
+                        <option value="tio">Tio/a</option>
+                        <!-- Agrega más opciones según tus necesidades -->
+                    </select><br><br>
+
+                    <label for="nombre_familiar">Nombre del Familiar:</label>
+                    <input type="text" id="nombre_familiar" name="nombre_familiar"><br><br>
+
+                    <label for="telefono">Número de Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono"><br><br>
+                    <input class="btn btn-success 2-100" type="submit" value="Guardar">
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel">
+                <h2>Ingrese el tipo de vestimenta inferior:</h2>
+                <label for="tipo_vestimenta">Vestimenta Inferior:</label>
+                <select id="tipo_vestimenta" name="tipo_vestimenta" required>
+                    <option value="pantalon">Pantalón</option>
+                    <option value="short">Short</option>
+                    <option value="falda">Falda</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <label for="marca_pantalones">Marca:</label>
+                <select id="marca_pantalones" name="marca_pantalones" required>
+                    <option value="Levi's">Levi's</option>
+                    <option value="Zara">Zara</option>
+                    <option value="H&M">H&M</option>
+                    <option value="Tommy Hilfiger">Tommy Hilfiger</option>
+                    <option value="Pull&Bear">Pull&Bear</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+                <label for="color_pantalon">Color:</label>
+                <select id="color_pantalon" name="color_pantalon" required>
+                    <option value="Azul Marino">Azul Marino</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Gris">Gris</option>
+                    <option value="Beige">Beige</option>
+                    <option value="Estampado">Estampado</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+
+                <h2>Ingrese el tipo de vestimenta superior:</h2>
+                <label for="tipo_vestimenta1">Vestimenta Superior:</label>
+                <select id="tipo_vestimenta1" name="tipo_vestimenta1" required>
+                    <option value="camisa">camisa</option>
+                    <option value="playera">playera</option>
+                    <option value="sueter">sueter</option>
+                    <option value="chamarra">chamarra</option>
+                    <option value="sudadera">sudadera</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <label for="marca_playeras">Marca:</label>
+                <select id="marca_playeras" name="marca_playeras" required>
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Puma">Puma</option>
+                    <option value="Hanes">Hanes</option>
+                    <option value="C&A">C&A</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <label for="color_ropa">Color:</label>
+                <select id="color_ropa" name="color_ropa" required>
+                    <option value="Negro">Negro</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Gris">Gris</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Estamapado">Estampado</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+
+                <h2>Ingrese el tipo calzado:</h2>
+                <label for="tipo_vestimenta2">Vestimenta Superior:</label>
+                <select id="tipo_vestimenta2" name="tipo_vestimenta2" required>
+                    <option value="tenis">tenis</option>
+                    <option value="botas">botas</option>
+                    <option value="zapatos">zapatos</option>
+                    <option value="sandalias">sandalias</option>
+
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <label for="marca_calzado">Marca:</label>
+                <select id="marca_calzado" name="marca_calzado" required>
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Puma">Puma</option>
+                    <option value="Converse">Converse</option>
+                    <option value="Vans">Vans</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <label for="color_calzado">Color:</label>
+                <select id="color_calzado" name="color_calzado" required>
+                    <option value="Negro">Negro</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Gris">Gris</option>
+                    <option value="Café">Café</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <h2>Ingrese el tipo de accesorios:</h2>
+                <input type="checkbox" id="pulseras" name="accesorios[]" value="pulseras">
+                <label for="pulseras">Pulseras</label><br>
+
+                <input type="checkbox" id="reloj" name="accesorios[]" value="reloj">
+                <label for="reloj">Reloj</label><br>
+
+                <input type="checkbox" id="cadenas" name="accesorios[]" value="cadenas">
+                <label for="cadenas">Cadenas</label><br>
+
+                <input type="checkbox" id="anillos" name="accesorios[]" value="anillos">
+                <label for="anillos">Anillos</label><br>
+
+                <input type="checkbox" id="lentes" name="accesorios[]" value="lentes">
+                <label for="lentes">Lentes</label><br>
+
+                <input type="checkbox" id="cinturon" name="accesorios[]" value="cinturon">
+                <label for="cinturon">Cinturón</label><br>
+
+                <br>
+                <label for="marca_accesorios">Marca:</label>
+                <select id="marca_accesorios" name="marca_accesorios" required>
+                    <option value="Rolex">Casio</option>
+                    <option value="Tiffany & Co.">Tiffany & Co.</option>
+                    <option value="Pandora">Pandora</option>
+                    <option value="Cartier">Cartier</option>
+                    <option value="Swatch">Swatch</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+
+                <label for="color_accesorios">Color:</label>
+                <select id="color_accesorios" name="color_accesorios" required>
+                    <option value="Plata">Plata</option>
+                    <option value="Oro">Oro</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Dorado Rosa">Dorado Rosa</option>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select><br><br>
+            </div>
+
+        </div>
+    </form>
+</body>

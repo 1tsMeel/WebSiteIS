@@ -54,3 +54,28 @@ ALTER TABLE users
 
 ALTER TABLE users
   ADD COLUMN apellido2 VARCHAR(60) NOT NULL AFTER apellido1;
+
+--BASE DE DATOS DELITOS--
+  CREATE TABLE global (
+  id_global INT(11) NOT NULL,
+  id_detenido INT(11) NOT NULL,
+  id_datant INT(11) NOT NULL,
+  id_tatuaje INT(11) NOT NULL,
+  id_adiccion INT(11) NOT NULL,
+  id_domicilio INT(11) NOT NULL,
+  id_familiar INT(11) NOT NULL,
+  created_at timestamp NOT NULL DEFAULT current_timestamp,
+  CONSTRAINT fk_detenido FOREIGN KEY(id_detenido) REFERENCES datos_personales(Id_Detenido)
+  CONSTRAINT fk_datant FOREIGN KEY(id_datant) REFERENCES datos_antropomorficos(Id_Datant)
+  CONSTRAINT fk_tatuaje FOREIGN KEY(id_tatuaje) REFERENCES tatuajes_detenido(Id_Tatuaje)
+  CONSTRAINT fk_adiccion FOREIGN KEY(id_adiccion) REFERENCES adicciones(Id_Adiccion)
+  CONSTRAINT fk_domicilio FOREIGN KEY(id_domicilio) REFERENCES domicilio(Id_Domicilio)
+  CONSTRAINT fk_familiar FOREIGN KEY(id_familiar) REFERENCES datos_familiares(Id_Familiar)
+);
+
+ALTER TABLE global
+  ADD PRIMARY KEY (id_global);
+
+ALTER TABLE global
+  MODIFY id_global INT(11) NOT NULL AUTO_INCREMENT;
+

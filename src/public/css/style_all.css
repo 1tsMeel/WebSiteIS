@@ -1,8 +1,10 @@
 body {
     height: 100vh;
     background-image: linear-gradient(to left bottom, #121c55, #1c3679, #22519e, #216fc4, #128eeb);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     overflow: hidden;
-
 }
 
 .index {
